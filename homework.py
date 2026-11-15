@@ -1,6 +1,6 @@
 # homework: in class, we drew a canvas with a bunch of carrots, potatos, and a sun.
 # TODO: An incomplete version of a house has been added to the canvas. Edit the part where it draws the house, and reposition each piece so that the house is complete.
-# website to run turtle is https://play.pyroom.app/playground
+# website to run turtle is https://pyroom.app
 
 import turtle
 import random
@@ -15,8 +15,6 @@ t.pencolor("green")
 t.fillcolor("green")
 screen.bgcolor("skyblue")
 screen.setup(1000, 500) 
-#       x (width) is 1000 and y (height) is 500
-#       x: -500 to 500        y: -250 to 250
 
 # we are going to draw a beautiful garden today
 
@@ -55,15 +53,15 @@ def draw_carrot():
     t.setheading(0)
     t.pensize(1)
 
-def teleport(x,y):
+def teleport(x, y):
     t.penup()
     t.goto(x, y)
     t.pendown()
 
 
-# draw 10 carrots
+# draw 10 carrots in random spots each run
 for i in range(10):
-    teleport(random.randint(-500, 500), random.randint(-250, 85))
+    teleport(random.randint(-460, 460), random.randint(-170, 40))
     draw_carrot()
 
 
@@ -74,33 +72,32 @@ def draw_potato():
     t.circle(30)
     t.end_fill()
 
-#draw 10 potatos
+# draw 10 potatos in random spots each run
 for i in range(10):
-    teleport(random.randint(-500, 500), random.randint(-250, -50))
+    teleport(random.randint(-460, 460), random.randint(-210, 10))
     draw_potato()
 
-#make the sun appear on the top right corner
-teleport(450,150)
 
+teleport(485, 165)
 
 # sun
 t.pencolor("yellow")
 t.fillcolor("yellow")
-t.pensize(4)
+t.pensize(10)
 
 t.begin_fill()
-for i in range(36):
-    t.forward(13)
-    t.left(10)
-    # the lines
-    t.right(100)
-    t.forward(80)
-    t.forward(-80)
-    t.left(100)
+for i in range(12):
+    t.forward(42)
+    t.left(30)
+    # the lines (rays)
+    t.right(105)
+    t.forward(70)
+    t.forward(-70)
+    t.left(105)
 t.end_fill()
 
 
-teleport(0,0)
+teleport(0, 0)
 t.pencolor("black")
 t.pensize(2)
 
@@ -132,28 +129,18 @@ def draw_roof():
     t.begin_fill()
     t.forward(200)
     t.left(160)
-    t.forward(160)
+    t.forward(106)
     t.left(40)
-    t.forward(160)
+    t.forward(106)
     t.left(160)
     t.end_fill()
 
-# TODO: edit the coordinates of this part, so that the house is neatly positioned with two windows.
+# TODO: edit the coordinates of this part, so that the house is neatly positioned.
+teleport(0, 0)
 draw_house()
-teleport(20, 20)
+
+teleport(25, 40)
 draw_window()
-teleport(120, 20)
+
+teleport(-15, 130)
 draw_roof()
-
-
-
-
-
-
-
-
-
-
-
-
-
